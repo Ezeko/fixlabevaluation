@@ -10,7 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// show home
+Route::get('/', 'HomeController@showHome' );
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//create account
+
+Route::post('/create', 'CreateAccountsController@createAccount');
+
+//fund account
+
+Route::match(['get', 'put'],'/fund', 'FundAccountsController@fundAccount');
+
+Route::match(['get', 'put'],'/withdraw', 'WithdrawFundsController@withdrawFund');
