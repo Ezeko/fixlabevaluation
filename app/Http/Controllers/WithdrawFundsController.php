@@ -24,14 +24,14 @@ class WithdrawFundsController extends Controller
        $withdrawn = User::where('id', $request->id)->update(['balance'=> $balance]);
 
        if ($withdrawn){
-           return response($content = 'Fund withdrawn successfully', $status = 200);
+           return response($content = ['message'=>'Fund withdrawn successfully'], $status = 200);
        }else{
-           return response($content = 'An error occur User cannot withdraw at the moment ', $status = 400);
+           return response($content = ['message'=>'An error occur User cannot withdraw at the moment '], $status = 400);
 
        }
      }else{
         
-        return response($content = 'Insufficient balance ', $status = 404);
+        return response($content = ['message'=>'Insufficient balance '], $status = 404);
     }
     }
 }

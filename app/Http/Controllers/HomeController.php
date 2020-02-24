@@ -9,7 +9,7 @@ class HomeController extends Controller
     //
     public function showHome(){
     
-            return view('welcome');
+            return  response($content = ['message'=>'Connected to server successfully'], $status = 200);
         
     }
 }

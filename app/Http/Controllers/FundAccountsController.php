@@ -23,9 +23,9 @@ class FundAccountsController extends Controller
         $funded = User::where('id', $request->id)->update(['balance'=> $balance]);
 
         if ($funded){
-            return response($content = 'User funded successfully', $status = 200);
+            return response($content = ['message' =>'User funded successfully' ], $status = 200);
         }else{
-            return response($content = 'An error occur User was not funded ', $status = 400);
+            return response($content = ['message'=>'An error occur User was not funded '], $status = 400);
 
         }
      }

@@ -30,9 +30,9 @@ class CreateAccountsController extends Controller
         $saved = $user->save();
 
         if ($saved){
-            return response($content = 'Account Created Sucessfully', $status = 201,  $headers = []);
+            return response($content = ['message'=>'Account Created Sucessfully'], $status = 201,  $headers = []);
         }else{
-            return response($content = 'Unable to create  account', $status = 400,  $headers = []);
+            return response($content = ['message'=>'Unable to create  account'], $status = 400,  $headers = []);
         }
      }
 }
