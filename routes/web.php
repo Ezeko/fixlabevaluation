@@ -12,3 +12,11 @@
 */
 // show home
 Route::get('/', 'HomeController@showHome' );
+
+//create account
+
+Route::post('/create', 'CreateAccountsController@createAccount');
+
+//fund account
+
+Route::put('/fund', 'FundAccountsController@fundAccount');
