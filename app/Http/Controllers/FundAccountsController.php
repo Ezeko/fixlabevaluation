@@ -10,17 +10,17 @@ class FundAccountsController extends Controller
     //
     /**
      * Allows user to fund their account
-     * @param registered user id Amount to fund
+     * @param registered user id Amount to fund send amount and id with request
      * @param response
      * returns json
      */
 
-     public function fundAccount(Request $request, $id){
+     public function fundAccount(Request $request){
          $amount = $request->amount;
          // find the previous balance
-         $prevBal = User::findOrFail($id);
+         $prevBal = User::findOrFail($request->id);
          $balance = $prevBal->balance + $amount;
-        $funded = User::where('id', $id)->update(['balance'=> $balance]);
+        $funded = User::where('id', $request->id)->update(['balance'=> $balance]);
 
         if ($funded){
             return response($content = 'User funded successfully', $status = 200);

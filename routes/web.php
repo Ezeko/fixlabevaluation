@@ -19,4 +19,6 @@ Route::post('/create', 'CreateAccountsController@createAccount');
 
 //fund account
 
-Route::put('/fund', 'FundAccountsController@fundAccount');
+Route::match(['get', 'put'],'/fund', 'FundAccountsController@fundAccount');
+
+Route::match(['get', 'put'],'/withdraw', 'WithdrawFundsController@withdrawFund');
